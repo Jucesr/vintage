@@ -1,0 +1,198 @@
+/**************************** Base ***************************/
+*{
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #C1CED9;
+  font-family: 'Montserrat' , sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled{
+  cursor: default;
+}
+
+.content-container{
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+.no-visible{
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.box-layout {
+  background-size: cover;
+  background-color: #3E2631;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+}
+
+.white_bg{
+  background: white;
+}
+
+.black_bg{
+  background: black;
+}
+
+.blue_bg{
+  background: #00749B;
+}
+
+.red_bg{
+  background: rgb(185,54,60);
+}
+
+.white_font{
+  color: white;
+}
+
+.black_font{
+  color: black;
+}
+
+.blue_font{
+  color: #00749B;
+}
+
+
+
+/**************************** Header ***************************/
+
+
+.home_image{
+  background-image: url('/images/bg.jpg');
+}
+
+.header__content{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem 0;
+  font-size: 2.0rem;
+  font-weight: bold;
+
+}
+
+.header__background{
+  position: fixed;
+  left: 0;
+  padding: 0 calc((100vw - 843.64px)/2);
+  background: black;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.header__nav{
+  list-style-type: none;
+  display: flex;
+}
+
+.header__nav li {
+  margin: auto 0 auto 5rem;
+}
+.header__nav li a{
+  text-decoration: none;
+  color: inherit;
+
+}
+
+.header__nav li a:hover{
+  color: rgb(185,54,60);
+}
+
+.header__title{
+  margin: auto 0 auto 5rem;
+}
+
+/**************************** Message_01 ***************************/
+.message_01{
+  background: white;
+}
+.message__title{
+  font-size: 5rem;
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.message__button{
+  width: 100%;
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 3rem;
+  padding-bottom: 5rem;
+}
+
+.message__button a{
+  text-decoration: none;
+  border-radius: 1rem;
+  display:inline-block;
+  padding: 1rem 3rem;
+  margin: 0 auto;
+}
+
+.message__button a:hover{
+  background: #691F22;
+  color: gray;
+}
+
+/**************************** About us ***************************/
+.about{
+  background: #00749B;
+}
+
+.about_image{
+  background-image: url('/images/about.jpg');
+}
+
+.about__content{
+  /* background: rgba(0, 0, 0, .8); */
+  color: white;
+  padding-bottom: 3rem;
+}
+
+.about__title{
+
+  font-size: 5rem;
+  text-align: center;
+  padding: 3rem;
+}
+
+.about__message{
+  padding: 0 1rem;
+  font-size: 3rem;
+}
+
+.about__message div{
+  width: 100%;
+}
+
+.about__message div img{
+  border: 3px solid black;
+  border-radius: 2rem;
+  margin: auto;
+  display: block;
+}
+
+/**************************** Message 02 ***************************/
+
+.message_02{
+  background: black;
+}
