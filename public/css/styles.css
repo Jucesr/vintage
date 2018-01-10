@@ -10,7 +10,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  color: #C1CED9;
+  /* color: #C1CED9; */
+  color: white;
   font-family: 'Montserrat' , sans-serif;
   font-size: 1.6rem;
   line-height: 1.6;
@@ -91,6 +92,7 @@ button:disabled{
 }
 
 .header__background{
+  z-index: 1;
   position: fixed;
   left: 0;
   padding: 0 calc((100vw - 843.64px)/2);
@@ -153,6 +155,20 @@ button:disabled{
   color: gray;
 }
 
+/**************************** Sections ***************************/
+
+.section__content{
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.section__title{
+  font-size: 5rem;
+  text-align: center;
+  padding: 3rem;
+}
+
+
 /**************************** About us ***************************/
 .about{
   background: #00749B;
@@ -162,34 +178,19 @@ button:disabled{
   background-image: url('/images/about.jpg');
 }
 
-.about__content{
-  /* background: rgba(0, 0, 0, .8); */
-  color: white;
-  padding-top: 1rem;
-  padding-bottom: 3rem;
-}
-
-.about__title{
-
-  font-size: 5rem;
-  text-align: center;
-  padding: 3rem;
-}
-
 .about__message{
   padding: 0 1rem;
   font-size: 3rem;
 }
 
-.about__message div{
-  width: 100%;
+.about__info{
+  width: 60%;
+  margin: 0 auto;
 }
 
-.about__message div img{
+.about__carousel img{
   border: 3px solid black;
   border-radius: 2rem;
-  margin: auto;
-  display: block;
 }
 
 /**************************** Message 02 ***************************/
@@ -214,24 +215,158 @@ button:disabled{
   border-radius: 5px;
 }
 
-/**************************** Contact ***************************/
+/**************************** Services ***************************/
+.services{
 
-.contact{
-  background: #00749B;
+}
+.services__catalog{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-end;
 }
 
-.contact__content{
-  color: white;
-  padding-top: 1rem;
-  padding-bottom: 3rem;
+.services__catalog a{
+  display:inline-block;
+  border-radius: 50%;
 }
 
-.contact__title{
+.catalog_item{
+  background: white;
+  border: 1rem solid black;
+  border-radius: 50%;
+  padding: 2rem;
+  margin: 0 2rem 4rem 2rem;
+  position: relative;
+}
 
-  font-size: 5rem;
+.catalog_item span{
+  opacity: 0;
+  font-size: 3rem;
+  font-weight: bold;
   text-align: center;
-  padding: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
+
+.catalog_item:hover{
+  /* background: rgb(170, 170, 170); */
+  background: #00749B;
+  cursor: pointer;
+
+}
+
+/**************************** Individual Service ***************************/
+
+.catalog__shots{
+  outline: 0;
+  padding-bottom: 10rem;
+}
+
+.catalog__shots h3{
+  font-size: 4rem;
+  text-align: center;
+  margin: 0 auto;
+  padding: 6rem;
+}
+
+.catalog__shots div{
+  text-align: center;
+}
+
+.catalog__packages{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.package{
+  /* padding: 0 3rem 3rem 3rem; */
+
+  margin: 0 4.4rem 3rem 4.4rem;
+  border: .01rem solid black;
+  border-radius: 1rem;
+  min-width: 300px;
+  box-shadow:1rem 1rem 3rem 0rem rgb(147, 42, 47);
+  display: flex;
+  flex-direction: column;
+}
+
+.package h4{
+  border-radius: 1rem 1rem 0 0;
+
+  padding: 1rem 0;
+  margin: 0;
+  background: #00749B;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.package div{
+  background: rgb(245, 245, 245);
+  /* margin: auto 0; */
+  min-height: 150px;
+}
+
+.package div img {
+  display: block;
+  margin: 1rem auto;
+}
+
+.package .cost {
+  padding: 2rem;
+  background: rgb(245, 245, 245);
+  color: rgb(71, 71, 71);
+  text-align: center;
+  font-size: 5rem;
+}
+
+.package ul{
+  text-align: justify;
+  padding: 2rem 5rem;
+  list-style: none;
+  background: white;
+  margin: 0;
+  color: black;
+  max-width: 300px;
+  /* min-height: 215px; */
+
+}
+
+.package ul li{
+  text-align: left;
+}
+
+.package ul li::before{
+  content: '✓ ';
+}
+
+.package button{
+  outline: 0;
+  font-size: 2rem;
+  padding: 1rem 0;
+  border: none;
+  border-radius: 0 0 1rem 1rem;
+  font-family: 'Anton', sans-serif;
+}
+
+.package button:hover{
+  background-color: rgb(73, 73, 73);
+  color: white;
+}
+
+
+
+/**************************** Contact ***************************/
 
 .contact__form{
   display: flex;
