@@ -53,7 +53,7 @@ button:disabled{
 }
 
 .blue_bg{
-  background: #00749B;
+  background: #00749B !important;
 }
 
 .red_bg{
@@ -72,6 +72,13 @@ button:disabled{
   color: #00749B;
 }
 
+header{
+  outline:0;
+}
+
+section{
+  outline:0;
+}
 
 
 /**************************** Header ***************************/
@@ -79,6 +86,22 @@ button:disabled{
 
 .home_image{
   background-image: url('/images/bg.jpg');
+}
+
+.box-layout {
+  background-size: cover;
+  background-color: #3E2631;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+}
+
+.header__content_mobile{
+  display: none;
+}
+
+.mobile_menu{
+  display: none;
 }
 
 .header__content{
@@ -121,6 +144,117 @@ button:disabled{
 
 .header__title{
   margin: auto 0 auto 5rem;
+}
+
+@media (max-width: 1200px) {
+  .header__title {
+    display: none;
+  }
+
+  .header__content{
+    justify-content: center;
+  }
+
+  .header__background{
+    padding: 0 calc((100vw - 559.64px)/2);
+  }
+}
+
+@media (max-width: 992px) {
+
+  .header__nav li {
+    margin: auto 0 auto 3.5rem;
+  }
+
+  .contact__form div{
+    display: none;
+  }
+
+  .contact__form form{
+    width: 100% !important;
+  }
+
+  .footer__content{
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer__content * {
+    padding: 1rem 0 ;
+  }
+
+  .about__info{
+    width: 100% !important;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .header__content{
+    display: none;
+  }
+
+  .header__content_mobile{
+    display: block;
+  }
+
+  .menu_icon{
+    margin-top: 2rem;
+    float: right;
+    display: block;
+    background: rgb(185,54,60);
+  }
+
+  .menu_icon:hover{
+    filter: brightness(50%);
+    cursor: pointer;
+  }
+
+  .centered-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+  }
+
+  .centered-form img{
+    padding-top: 2rem;
+  }
+
+
+
+  .mobile_menu_container{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .5rem 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .mobile_menu_container ul{
+    list-style-type: none;
+    margin: 0;
+  }
+
+  .mobile_menu_container a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .mobile_menu_container li:hover{
+    filter: brightness(50%);
+  }
+
+  .about__info{
+    width: 100% !important;
+  }
+
+
+
 }
 
 /**************************** Message_01 ***************************/
@@ -423,6 +557,10 @@ button:disabled{
 
 }
 
+.social_link{
+  margin: 0 1rem;
+}
+
 .footer__content p {
   margin: 0;
 }
@@ -431,4 +569,19 @@ button:disabled{
   text-decoration: none;
   color: inherit;
   font-weight: bold;
+}
+
+/**************************** Modals ***************************/
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+#dialog_success button{
+  display: block;
+  margin: auto auto;
+}
+
+#dialog_error button{
+  display: block;
+  margin: auto auto;
 }

@@ -6,13 +6,24 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/slick.css">
     <link rel="stylesheet" href="/css/slick-theme.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <title>Vintage</title>
 
   </head>
   <body>
+
+    <nav id="mobile_menu" class="mobile_menu blue_bg">
+      <div class="mobile_menu_container">
+        <ul>
+          <li><a href="#about">CONOCENOS</a></li>
+          <li><a href="#services">SERVICIOS</a></li>
+          <li><a href="#contact">CONTACTO</a></li>
+        </ul>
+      </div>
+
+    </nav>
 
     <header class="box-layout home_image" id="home" >
       <div class="content-container">
@@ -31,6 +42,15 @@
             <li><a href="#contact"> CONTACTO</a></li>
           </ul>
 
+        </div>
+
+        <div class="header__content_mobile">
+          <img id="menu_icon" class="menu_icon" width="50px" src="/images/menu.png" alt="">
+
+          <div class="centered-form">
+            <img id="logo" width="150px" src="/images/logo.png"></img>
+            <img id="logo_title" src="/images/title.png"></img>
+          </div>
         </div>
       </div>
     </header>
@@ -140,13 +160,13 @@
         <div class="section__content ">
           <h2 class="section__title">Contrata ya!</h2>
           <div class="contact__form">
-            <form action="index.html" method="post">
-              <input type="text" name="" placeholder="Nombre">
-              <input type="text" name="" placeholder="E-mail">
-              <input type="text" id="phone" name="" placeholder="Teléfono">
-              <input type="text" id="date" placeholder="Fecha">
-              <textarea name="name" rows="8" cols="80" placeholder="Mensaje"></textarea>
-              <button class="white_font red_bg " type="button" name="button">Enviar</button>
+            <form id="contact_form">
+              <input type="text" name="name" placeholder="Nombre">
+              <input type="text" name="email" placeholder="E-mail">
+              <input type="text" id="phone" name="phone" placeholder="Teléfono">
+              <input type="text" id="date" name="date" placeholder="Fecha">
+              <textarea id="message_text" name="message" rows="8" cols="80" placeholder="Mensaje"></textarea>
+              <button class="white_font red_bg ">Enviar</button>
             </form>
             <div class="">
               <img width="400" src="/images/contact.jpg" alt="">
@@ -157,14 +177,27 @@
       </div>
     </section>
 
+    <div id="dialog_loader">
+      <img width="200px" src="/images/loader.gif" alt="">
+    </div>
+    <div id="dialog_success">
+      <button class="ok_btn" type="button" name="button">OK</button>
+    </div>
+    <div id="dialog_error">
+      <p>Lo sentimos, hubo un error al reservar. <br> Porfavor envie un correo electronico a <strong>jcom.94m@gmail.com</strong></p>
+      <button class="ok_btn" type="button" name="button">OK</button>
+    </div>
+
     <footer class="footer">
       <div class="content-container">
         <div class="footer__content">
           <p>Vintage Eventos 2018 &copy;</p>
           <p>
-            <img width="50px" src="/images/fb-footer.png" alt="">
-            <img width="50px" src="/images/is-footer.png" alt="">
-            <img width="50px" src="/images/wa-footer.png" alt="">
+            <a class="social_link" href="#"><img width="50px" src="/images/fb-footer.png" alt=""></a>
+            <a class="social_link" href="#"><img width="50px" src="/images/is-footer.png" alt=""></a>
+            <a class="social_link" href="#"><img width="50px" src="/images/wa-footer.png" alt=""></a>
+
+
           </p>
           <p>Pagina realizada por <a target="_blank" href="https://www.linkedin.com/in/julio-ojeda-9640a9113/">Julio Ojeda</a></p>
         </div>

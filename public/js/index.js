@@ -1,11 +1,3 @@
-$.getJSON("./data.json", function(result){
-  alert('d');
-  console.log(result);
-        $.each(result, function(i, field){
-            $("div").append(field + " ");
-        });
-    });
-
 // Select all links with hashes
 $('a[href*="#"]')
   // Remove links that don't actually link to anything
@@ -41,38 +33,6 @@ $(window).scroll( function() {
     $('#logo').width(70);
   }
 });
-
-$( "#date" ).datepicker({
-  monthNames: [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre"
-  ],
-  dayNames: [
-    "Domingo",
-    "Lunes",
-    "Martes",
-    "Miercoles",
-    "Jueves",
-    "Viernes",
-    "Sabado"
-  ],
-  dayNamesMin: [ "D", "L", "M", "M", "J", "V", "S" ],
-  dateFormat: "dd MM yy"
-});
-
-$('#phone').mask('(000)000-0000', {placeholder: "Telefono (___)___-____"});
-
-$('#catalog0').hide();
 
 function smoothScroll(target){
   $('html, body').animate({
@@ -121,7 +81,7 @@ function show_catalog(catalog_id){
           var info_item = $(`<li>${info}</li>`);
           package_info.append(info_item);
         });
-      var package_button = $('<button type="button" name="button">Reservar</button>');
+      var package_button = $(`<button type="button" name="button" onclick="reserve('${catalog_id} ${i}')">Reservar</button>`);
 
       package_div.append(package_name, [package_image, package_info, package_button]);
       catalog_packages.append(package_div);
@@ -151,14 +111,181 @@ function show_catalog(catalog_id){
 
 }
 
+function reserve(params){
+  var index = params.split(' ');
+  var catalog = catalogs_data[index[0]].title;
+  var package = catalogs_data[index[0]].packages[index[1] - 1];
+  var text = `Hola \n Me gustaria contratar el paquete '${package.name}' de '${catalog}'. Para mi proximo evento. \n La informacion del paquete es: \n`;
+  var info = '';
+  package.info.map(function(i){
+    info += ` \n${i}`
+  });
+  text += info;
+
+  smoothScroll($('#contact'));
+  $('#message_text').val(text);
+}
+
+function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+
+function validateMessage(target){
+  var error = '';
+  if(!target.name){
+    error = 'Nombre vacio';
+  }
+  if(!isEmail(target.email)){
+    error = 'Email invalido'
+  }
+  if(!target.phone){
+    error = 'Telefono vacio';
+  }
+  if(!target.date){
+    error = 'Fecha vacia';
+  }
+  if(!target.message){
+    error = 'Mensaje vacio';
+  }
+
+  return error;
+}
+
+function cleanForm(target){
+  target.name.value = '';
+  target.email.value = '';
+  target.phone.value = '';
+  target.date.value = '';
+  target.message.value = '';
+}
+
+$( "#date" ).datepicker({
+  monthNames: [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre"
+  ],
+  dayNames: [
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miercoles",
+    "Jueves",
+    "Viernes",
+    "Sabado"
+  ],
+  dayNamesMin: [ "D", "L", "M", "M", "J", "V", "S" ],
+  dateFormat: "dd MM yy"
+});
+
+$('#phone').mask('(000)000-0000', {placeholder: "Telefono (___)___-____"});
+
+$('#contact_form').submit( function(event){
+
+  var messageMail = {
+    name: event.target.name.value,
+    email: event.target.email.value,
+    phone: event.target.phone.value,
+    date: event.target.date.value,
+    message: event.target.message.value
+  }
+  var error = validateMessage(messageMail);
+  if(error){
+    $("#dialog_success").dialog( "option", "title", error );
+    $("#dialog_success").dialog( "open" );
+    // alert(error);
+  }else{
+    $.ajax({
+      type: "POST",
+      dataType : "json",
+      contentType: "application/json; charset=utf-8",
+      url: '/sendmail',
+      data: JSON.stringify(messageMail),
+      beforeSend: function(){
+        $( "#dialog_loader" ).dialog( "open" );
+      },
+      complete: function (xhr, ajaxOptions, thrownError) {
+        if(xhr.status == 200){
+          $("#dialog_success").dialog( "option", "title", 'Mensaje enviado' );
+          $("#dialog_success").dialog( "open" );
+          cleanForm(event.target);
+
+        }else{
+          $("#dialog_error").dialog( "open" );
+        }
+        $( "#dialog_loader" ).dialog( "close" );
+      }
+    });
+  }
+
+
+  event.preventDefault();
+});
+
 $('.catalog_item').hover( function() {
   $( this ).children( 'span' ).css('opacity', '1');
   }, function() {
   $( this ).children( 'span' ).css('opacity', '0');
 });
 
+$('.ok_btn').click(function(){
+  $( "#dialog_success" ).dialog('close');
+  $( "#dialog_error" ).dialog('close');
+});
+
+$('#menu_icon').click(function(){
+  if ( $( "#mobile_menu" ).is( ":hidden" ) ) {
+    $( "#mobile_menu" ).slideDown( "slow" );
+  } else {
+    $( "#mobile_menu" ).slideUp();
+  }
+});
+
 $('.about__carousel').slick({
   autoplay: true,
   dots: true,
   autoplaySpeed: 2000,
+});
+
+$( "#dialog_success" ).dialog({
+    dialogClass: "no-close",
+    title: '',
+    draggable: false,
+    autoOpen: false,
+    resizable: false,
+    height: 100,
+    width: 200,
+    modal: true
+});
+
+$( "#dialog_loader" ).dialog({
+  title: "Enviando mensaje...",
+  dialogClass: "no-close",
+  draggable: false,
+  autoOpen: false,
+  resizable: false,
+  height: "auto",
+  width: "auto",
+  modal: true
+});
+
+$( "#dialog_error" ).dialog({
+  dialogClass: "no-close",
+  title: "Error",
+  draggable: false,
+  autoOpen: false,
+  resizable: false,
+  height: "auto",
+  width: 350,
+  modal: true
 });

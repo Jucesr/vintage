@@ -1,11 +1,16 @@
 {
-  "name": "vintage-webpage",
+  "name": "vintage",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web page app with node back end.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "nodemailer": "^4.4.1"
+  }
 }
