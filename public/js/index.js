@@ -221,6 +221,7 @@ $('#contact_form').submit( function(event){
           cleanForm(event.target);
 
         }else{
+          console.log(xhr);
           $("#dialog_error").dialog( "open" );
         }
         $( "#dialog_loader" ).dialog( "close" );

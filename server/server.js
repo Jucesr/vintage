@@ -17,7 +17,7 @@ app.post('/sendmail', (req, res) => {
   mail.sendMail(text).then( (result) => {
     res.status(200).send();
   }, (e) => {
-    res.status(400).send();
+    res.status(400).send(e);
   });
 });
 
