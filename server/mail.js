@@ -5,6 +5,9 @@ const myEmail = process.env.SENDER_EMAIL;
 const myPass = process.env.SENDER_PASSWORD;
 
 var transporter = nodemailer.createTransport({
+  host: 'smtp.ethereal.email',
+  port: 587,
+  secure: false, // true for 465, false for other ports
   service: 'hotmail',
   auth: {
     user: myEmail,
