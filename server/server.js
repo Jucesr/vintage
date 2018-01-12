@@ -28,9 +28,10 @@ app.listen(port, () => {
 const createTextMessage = (message) =>{
   const title = `<p style="font-size:25px">Un cliente ha enviado un mensaje </p>`;
   const name = `<li> <strong>Nombre: </strong>${message.name}</li>`;
-  const email = `<li> <strong>Email: </strong>${message.email}</li>`;
+  const email = `<li> <strong>Email: </strong>${message.email} <strong>&lt;-- Click para responder</strong></li>`;
   const phone = `<li> <strong>Telefono: </strong>${message.phone}</li>`;
   const date = `<li> <strong>Fecha: </strong>${message.date}</li>`;
   const text = `<li> <strong>Mensaje: </strong>${message.message}</li>`;
-  return `${title} <ul style="font-size:20px">${name} ${email} ${phone} ${date} ${text}</ul>`
+  const warning = `<div style="font-size:25px;color:red;">No responder directamente a este correo sino al email de la parte superior.</div>`
+  return `${title} <ul style="font-size:20px">${name} ${email} ${phone} ${date} ${text}</ul> ${warning}`
 }

@@ -186,6 +186,10 @@ section{
     width: 100% !important;
   }
 
+  .about__carousel img{
+    min-height: 5px!important;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -325,6 +329,7 @@ section{
 .about__carousel img{
   border: 3px solid black;
   border-radius: 2rem;
+  min-height: 461px;
 }
 
 /**************************** Message 02 ***************************/
