@@ -308,12 +308,17 @@ section{
 
 
 /**************************** About us ***************************/
-.about{
+/* .about{
   background: #00749B;
-}
+} */
 
-.about_image{
-  background-image: url('/images/about.jpg');
+.about{
+  background-size: cover;
+  /* height: 100vh; */
+  width: 100vw;
+  max-width: 100%;
+
+  background-image: url('/images/about-black.jpg') ;
 }
 
 .about__message{
@@ -322,8 +327,9 @@ section{
 }
 
 .about__info{
-  width: 60%;
+  width: 40%;
   margin: 0 auto;
+  padding: 5rem 0;
 }
 
 .about__carousel img{
@@ -332,27 +338,7 @@ section{
   min-height: 461px;
 }
 
-/**************************** Message 02 ***************************/
 
-.message_02{
-  background: white;
-  padding-bottom: 5rem;
-}
-
-.message__social{
-  margin: 0 auto;
-  text-align: center;
-}
-
-.message__social a img{
-  margin: 0 1.5rem;
-  padding: 0 .5rem;
-}
-
-.message__social a img:hover{
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-}
 
 /**************************** Services ***************************/
 .services{
@@ -506,18 +492,27 @@ section{
 
 
 /**************************** Contact ***************************/
+.contact{
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+
+  background-image: url('/images/contact-black.jpg') ;
+}
 
 .contact__form{
   display: flex;
   flex-direction: row;
 
   justify-content: space-between;
-  width: 90%;
+  width: 50%;
   margin: 0 auto;
+
 }
 
 .contact__form form{
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
@@ -552,7 +547,8 @@ section{
 
 .footer{
   margin: 0;
-  background: rgb(54, 54, 54);
+  background: white;
+  color: black;
 }
 
 .footer__content{
@@ -567,7 +563,7 @@ section{
 }
 
 .footer__content p {
-  margin: 0;
+  margin: auto 0;
 }
 
 .footer__content p a{
@@ -576,6 +572,20 @@ section{
   font-weight: bold;
 }
 
+.message__social{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.message__social a img{
+  margin: 0 1.5rem;
+  padding: 0 .5rem;
+}
+
+.message__social a img:hover{
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
 /**************************** Modals ***************************/
 .no-close .ui-dialog-titlebar-close {
   display: none;
