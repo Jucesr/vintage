@@ -326,6 +326,10 @@ section{
   font-size: 3rem;
 }
 
+.about__message p {
+  text-align: center;
+}
+
 .about__info{
   width: 40%;
   margin: 0 auto;
