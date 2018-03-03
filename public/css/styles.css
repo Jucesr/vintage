@@ -498,7 +498,7 @@ section{
 /**************************** Contact ***************************/
 .contact{
   background-size: cover;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
   max-width: 100%;
 
@@ -545,6 +545,12 @@ section{
   border: 3px solid black;
   border-radius: 2rem;
   margin: auto;
+}
+
+@media (max-width: 768px) {
+  .contact__form{
+    width: 80%;
+  }
 }
 
 /**************************** Footer ***************************/
