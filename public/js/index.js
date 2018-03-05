@@ -226,8 +226,12 @@ $('#menu_icon').click(function () {
 
 $('.about__carousel').slick({
   autoplay: true,
+  // slidesToShow: 3,
+  pauseOnHover: false,
   dots: true,
-  autoplaySpeed: 2000
+  autoplaySpeed: 2000,
+  adaptiveHeight: true,
+  // variableWidth: true
 });
 
 $("#dialog_success").dialog({

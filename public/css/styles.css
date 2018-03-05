@@ -182,13 +182,7 @@ section{
     padding: 1rem 0 ;
   }
 
-  .about__info{
-    width: 100% !important;
-  }
 
-  .about__carousel img{
-    min-height: 5px!important;
-  }
 
 }
 
@@ -252,12 +246,6 @@ section{
   .mobile_menu_container li:hover{
     filter: brightness(50%);
   }
-
-  .about__info{
-    width: 100% !important;
-  }
-
-
 
 }
 
@@ -331,15 +319,46 @@ section{
 }
 
 .about__info{
-  width: 40%;
+  width: 30%;
   margin: 0 auto;
-  padding: 5rem 0;
+  padding: 2rem 0;
+}
+
+.about__carousel{
+  /* width: auto; */
+  /* max-height: 461px; */
 }
 
 .about__carousel img{
-  border: 3px solid black;
-  border-radius: 2rem;
-  min-height: 461px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid black;
+  /* border-radius: 2rem; */
+  max-height: 600px;
+  /* width: auto; */
+}
+
+@media (max-width: 1200px) {
+  .about__info{
+    width: 50% !important;
+  }
+}
+
+@media (max-width: 992px) {
+
+  .about__info{
+    width: 60% !important;
+  }
+
+  .about__carousel img{
+    min-height: 5px!important;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__info{
+    width: 100% !important;
+  }
 }
 
 
@@ -391,6 +410,10 @@ section{
   background: #00749B;
   cursor: pointer;
 
+}
+
+#catalog_info{
+  padding-bottom: 5rem;
 }
 
 /**************************** Individual Service ***************************/
